@@ -6,6 +6,16 @@ Chatbot demonstration for Virginia Department of Small Business and Supplier Div
 
 ./sbsd-background - contains initial documents received from the SBSD.
 
+## Resources
+
+We'll probably want to explore the various LLM available:
+
+* [Anthropic javascript API (for react-native, etc.)](https://github.com/anthropics/anthropic-sdk-typescript)
+* [Anthropic python API](https://github.com/anthropics/anthropic-sdk-python)
+* [ChatGPT/OpenAI python API](https://github.com/openai/openai-python)
+* [ChatGPT/OpenAI javascript API](https://github.com/openai/openai-node)
+
+
 ## Project description
 
 Create a chatbot that can be accessed from specific pages within a website as well as from within a web-based application by clicking a link or button. The chatbot should have the ability to answer questions typed into a provided field, based on a list of questions and corresponding answers maintained with the chat bot system. The chatbot should also have the ability to route the user to their choice of additional support through phone and email.
