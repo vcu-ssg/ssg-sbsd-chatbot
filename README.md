@@ -70,21 +70,21 @@ a.	Through the list we provided of the most common questions we get, providing t
 
 *Are you trying to drive engagement with the SBSD?*
 
-    Always, but I don’t think that is a goal for this endeavor 
+Always, but I don’t think that is a goal for this endeavor 
 
 *Do customers (potential users) drift away because they can’t get good information?*
 
-    That isn’t a primary concern. They need to get certified and this agency is the certifying authority, so they really have to do it if they want to get certified. 
+That isn’t a primary concern. They need to get certified and this agency is the certifying authority, so they really have to do it if they want to get certified. 
 
 *Is the current site too hard to use?*
 
-    It may be, but we have other goals that work towards improving this particular issue. 
+It may be, but we have other goals that work towards improving this particular issue. 
 
 *Is the information to arcane/specialized for customers to digest?*
 
-    I don’t believe so, it may be more of a volume issue that makes it difficult to understand. The application process is a long one and there are a lot of requirements and documentation.
+I don’t believe so, it may be more of a volume issue that makes it difficult to understand. The application process is a long one and there are a lot of requirements and documentation.
 
-    We do currently monitor call volume, so that would be a metric that could be measured. 
+We do currently monitor call volume, so that would be a metric that could be measured. 
 
-    The staff that works these applications would be able to provide additional feedback on success
+The staff that works these applications would be able to provide additional feedback on success
 
