@@ -2,12 +2,18 @@ import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
 
 
-function Test () {
+const Test = ()=>{
   return(
     <Text style={styles.header1}>Hello from my component</Text>
   )
+}
 
-  }
+const Test2 = ()=>{
+  return(
+    <Text style={styles.header2}>A line underneath</Text>
+  )
+}
+
 
 export default function App() {
   return (
@@ -29,5 +35,11 @@ const styles = StyleSheet.create({
   header1: {
     fontSize: 30,
     fontWeight: 'bold'
+  },
+  header1: {
+    fontSize: 15,
+    fontWeight: 'bold',
+    marginTop: 30
   }
+
 });
