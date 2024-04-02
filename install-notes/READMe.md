@@ -18,6 +18,7 @@ See: [React-native on the web](https://blog.logrocket.com/complete-guide-react-n
 npx create-expo-app ChatSBSD
 cd ChatSBSD
 npx expo install react-dom react-native-web @expo/webpack-config
+npm install expo-cli
 ```
 
 Then, you need to edit the *App.json* file to redirect a web build to the *./docs* folder rather than the default folder.

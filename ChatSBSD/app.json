@@ -25,9 +25,15 @@
     },
     "web": {
       "favicon": "./assets/favicon.png",
+      "output": "single",
+      "bundler": "metro",
       "build": {
         "output": "../docs"
       }
+    },
+    "experiments": {
+      "baseUrl": "/ssg-sbsd-chatbot"
     }
   }
 }
+
