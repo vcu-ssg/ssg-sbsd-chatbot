@@ -20,6 +20,7 @@ export default function App() {
     <View style={styles.container}>
       <Test />
       <Text>Open up App.js to start working on your app!</Text>
+      <Test2 />
       <StatusBar style="auto" />
     </View>
   );
@@ -36,10 +37,9 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontWeight: 'bold'
   },
-  header1: {
+  header2: {
     fontSize: 15,
     fontWeight: 'bold',
     marginTop: 30
   }
-
 });
