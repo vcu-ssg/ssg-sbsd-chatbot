@@ -4,7 +4,11 @@ import { env } from 'react-native-dotenv';
 
 
 const ChatComponent = ( initialMessage = null ) => {
-  const [messages, setMessages] = useState([{role:'system',content:"you're a helpful assistant that talks like a pirate"}]);
+  const [messages, setMessages] = useState([
+    {role:'system',content:"You are a helpful assistant that talks like a pirate."},
+    {role:'system',content:"Your core knowledge revolves around the Virginia Department of Small Business and Supplier Diversity."},
+    {role:'system',content:"You are answering questions from small business owners looking to take businesses to the next level by leveraging SBSD programs."}
+  ]);
   const [newMessage, setNewMessage] = useState('');
   const [lastFive,setLastFive] = useState('VjQEv');
   const flatListRef = useRef(null);
