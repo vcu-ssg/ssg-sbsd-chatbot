@@ -1,45 +1,26 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState, useRef, useEffect } from 'react';
+import { View, Text, TextInput, FlatList, StyleSheet } from 'react-native';
+import ChatComponent from './components/ChatComponent';
+import ChatComponent2 from './components/ChatComponent2';
+import { env } from 'react-native-dotenv';
 
 
-const Test = ()=>{
-  return(
-    <Text style={styles.header1}>Hello from my component</Text>
-  )
-}
+const App = () => {
 
-const Test2 = ()=>{
-  return(
-    <Text style={styles.header2}>A line underneath</Text>
-  )
-}
-
-
-export default function App() {
   return (
     <View style={styles.container}>
-      <Test />
-      <Text>Open up App.js to start working on your app!</Text>
-      <Test2 />
-      <StatusBar style="auto" />
+      <ChatComponent />
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  header1: {
-    fontSize: 30,
-    fontWeight: 'bold'
-  },
-  header2: {
-    fontSize: 15,
-    fontWeight: 'bold',
-    marginTop: 30
+    maxWidth: 600,
+    marginHorizontal: 'auto'
   }
 });
+  
+export default App;
