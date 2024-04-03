@@ -6,18 +6,18 @@ import { env } from 'react-native-dotenv';
 const ChatComponent = ( initialMessage = null ) => {
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState('');
+  const [lastFive,setLastFive] = useState('VjQEv');
   const flatListRef = useRef(null);
 
   const sendMessageToChatGPT = async (userInput) => {
     const modelEndpoint = 'https://api.openai.com/v1/chat/completions'; // Endpoint for ChatGPT
-    const YOUR_MAMMA = "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" // public GH pages key (restricted)
-
+    const YOUR_MAMMA = "sk-MF37CL0Wo1VuIhAkyi61T3BlbkFJJ6A0zjqUwdMRx6S" // public GH pages key (restricted)
     try {
       const response = await fetch(modelEndpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${YOUR_MAMMA}`
+          'Authorization': `Bearer ${YOUR_MAMMA}${lastFive}`
         },
         body: JSON.stringify({
           model: 'gpt-3.5-turbo', // Specify the model you want to use
