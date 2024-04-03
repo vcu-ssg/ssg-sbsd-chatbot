@@ -4,7 +4,7 @@ import { env } from 'react-native-dotenv';
 
 
 const ChatComponent = ( initialMessage = null ) => {
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState([{role:'system',content:"you're a helpful assistant that talks like a pirate"}]);
   const [newMessage, setNewMessage] = useState('');
   const [lastFive,setLastFive] = useState('VjQEv');
   const flatListRef = useRef(null);
@@ -12,6 +12,10 @@ const ChatComponent = ( initialMessage = null ) => {
   const sendMessageToChatGPT = async (userInput) => {
     const modelEndpoint = 'https://api.openai.com/v1/chat/completions'; // Endpoint for ChatGPT
     const YOUR_MAMMA = "sk-MF37CL0Wo1VuIhAkyi61T3BlbkFJJ6A0zjqUwdMRx6S" // public GH pages key (restricted)
+
+    const apiInput = [...messages, {role:'user',content: userInput }];
+
+    console.log("API input:\n",apiInput);
     try {
       const response = await fetch(modelEndpoint, {
         method: 'POST',
@@ -21,9 +25,7 @@ const ChatComponent = ( initialMessage = null ) => {
         },
         body: JSON.stringify({
           model: 'gpt-3.5-turbo', // Specify the model you want to use
-          messages: [
-            { role: 'user', content: userInput }
-          ],
+          messages: apiInput
         }),
       });
 
@@ -44,7 +46,6 @@ const ChatComponent = ( initialMessage = null ) => {
       setMessages([...messages, { role: 'user', content: newMessage.trim() }]);
       setNewMessage('');
   
-
       console.log("messages: ", messages );
 
       try {
@@ -53,14 +54,14 @@ const ChatComponent = ( initialMessage = null ) => {
           setMessages([
             ...messages,
             { role: 'user', content: newMessage.trim() },
-            { role: 'other', content: response.choices[0].message.content.trim() }, // Ensure response is trimmed
+            { role: 'assistant', content: response.choices[0].message.content.trim() }, // Ensure response is trimmed
           ]);
         } else {
           console.error('Empty response received from ChatGPT API');
           setMessages([
             ...messages,
             { role: 'user', content: newMessage.trim() },
-            { role: 'other', content: 'Sorry, an error occurred while processing your request.' },
+            { role: 'error', content: 'Sorry, an error occurred while processing your request.' },
           ]);
         }
       } catch (error) {
@@ -68,7 +69,7 @@ const ChatComponent = ( initialMessage = null ) => {
         setMessages([
           ...messages,
           { role: 'user', content: newMessage.trim() },
-          { role: 'other', content: 'Sorry, an error occurred while processing your request.' },
+          { role: 'error', content: 'Sorry, an error occurred while processing your request.' },
         ]);
       }
     }
