@@ -10,14 +10,14 @@ const ChatComponent = ( initialMessage = null ) => {
 
   const sendMessageToChatGPT = async (userInput) => {
     const modelEndpoint = 'https://api.openai.com/v1/chat/completions'; // Endpoint for ChatGPT
-    const OPENAI_API_KEY = "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" // public GH pages key (restricted)
+    const YOUR_MAMMA = "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" // public GH pages key (restricted)
 
     try {
       const response = await fetch(modelEndpoint, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${OPENAI_API_KEY}`
+          'Authorization': `Bearer ${YOUR_MAMMA}`
         },
         body: JSON.stringify({
           model: 'gpt-3.5-turbo', // Specify the model you want to use
