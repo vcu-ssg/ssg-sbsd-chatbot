@@ -12,11 +12,11 @@ const ChatComponent = ( initialMessage = null ) => {
   const [newMessage, setNewMessage] = useState('');
   const [lastFive,setLastFive] = useState('VjQEv');
   const flatListRef = useRef(null);
+  const [flatListHeight, setFlatListHeight] = useState(0); // State to track FlatList height
 
   const sendMessageToChatGPT = async (userInput) => {
     const modelEndpoint = 'https://api.openai.com/v1/chat/completions'; // Endpoint for ChatGPT
     const YOUR_MAMMA = "sk-MF37CL0Wo1VuIhAkyi61T3BlbkFJJ6A0zjqUwdMRx6S" // public GH pages key (restricted)
-
     const apiInput = [...messages, {role:'user',content: userInput }];
 
     console.log("API input:\n",apiInput);
@@ -90,15 +90,26 @@ const ChatComponent = ( initialMessage = null ) => {
     </View>
   );
 
+  // Adjust FlatList height based on its content, up to a max height
+  const handleContentSizeChange = (contentWidth, contentHeight) => {
+    const maxSize = 400;
+    setFlatListHeight(contentHeight+30 > maxSize ? maxSize: contentHeight+30); // Max height: 300
+    console.log( 'Width/Height ',contentWidth,'  ',contentHeight);
+  };
+  
+  const filteredMessages = messages.filter(message => message.role !== 'system');
+
   return (
     <View style={styles.container}>
-      <FlatList
-        ref={flatListRef}
-        data={messages}
-        renderItem={renderItem}
-        keyExtractor={(item, index) => index.toString()}
-        style={styles.messageList}
-      />
+      <View style={[styles.listContainer, { height: flatListHeight }]}>
+        <FlatList
+          ref={flatListRef}
+          data={filteredMessages}
+          renderItem={renderItem}
+          keyExtractor={(item, index) => index.toString()}
+          style={styles.messageList}
+        />
+      </View>
       <View style={styles.inputContainer}>
         <TextInput
           style={styles.input}
@@ -117,15 +128,22 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     maxWidth: 600,
+    width: '80%',
+    alignSelf: 'center',
+    flexDirection: 'column',
     marginHorizontal: 'auto'
   },
   messageList: {
-    flex: 1,
+    flexGrow: 1,
     padding: 10,
+  },
+  listContainer: {
+    maxWidth: '100%',
+    flexGrow: 1, // Prevent FlatList from filling the entire container by default
   },
   messageContainer: {
     marginVertical: 5,
-    maxWidth: '80%',
+    Width: '80%',
     padding: 10,
     borderRadius: 10,
   },
@@ -151,7 +169,7 @@ const styles = StyleSheet.create({
     borderColor: 'gray',
     borderWidth: 1,
     borderRadius: 20,
-    paddingHorizontal: 10,
+    paddingHorizontal: 10
   },
 });
 
