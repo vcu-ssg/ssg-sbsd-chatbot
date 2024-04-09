@@ -36,6 +36,7 @@ Better models (e.g., [ChatGPT 4.0 turbo](https://platform.openai.com/docs/models
 1. Use of the current model costs less then a penny per interaction. Better models are also more expensive to operate.
 1. This site is being hosted for free at [GITHUB pages](https://pages.github.com/).
 1. This hosting solution is NOT for production. It is NOT secure or private. We hacked a few things to get this to run publically. One would NOT want to do this for production.
+1. Source code is [available here.](https://github.com/vcu-ssg/ssg-sbsd-chatbot/)
 
 ## Next actions
 
